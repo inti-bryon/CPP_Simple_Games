@@ -1,4 +1,4 @@
-﻿// IntiCPP_consoleapp01.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿//sample sandbox for playing with C++
 //
 
 #include <iostream>
@@ -10,14 +10,14 @@ int main() {
     int game = 1;
     while (true) {
         std::cout << "\n\n==================================================\n";
-    std::cout << "Please select which game to play...\n\n\t(1)Harry Potter Sorting Hat\n\n\t(2)Rock, Paper, Scissors\n\n";
+    std::cout << "Please select which game to play...\n\n\t(1) Harry Potter Sorting Hat\n\n\t(2) Rock, Paper, Scissors\n\n\t(3) Guess Random Number\n\n";
     std::cout << "==================================================\n";
     std::cin >> game;
         switch (game)
         {
         case 1:
         {
-            //Harry Potter Hat SOrting Game
+            //Harry Potter Hat Sorting Game
             //main variables 
             int gryffindor = 0;
             int hufflepuff = 0;
@@ -144,8 +144,9 @@ int main() {
             }
 
             std::cout << "\n...\nYour Selected House is : " << house << "!\n\n";
+           break;
         }
-            break;
+         
         case 2:
         {
             //Rock, Paper, Scissors
@@ -166,6 +167,8 @@ int main() {
 
             std::cin >> user;
 
+            std::cout << "You selected: " << user << ". The Computer Selected: " << computer << "\n";
+
             if (user == 1 && computer == 3 || user == 2 && computer == 1 || user == 3 && computer == 2) {
                 std::cout << "YAY... you win!\n";
             }
@@ -175,6 +178,25 @@ int main() {
             else {
                 std::cout << "Oh no... CPU Wins!!\n\n";
             }
+
+            break;
+        }
+        case 3: 
+        {
+            //guess random number
+            srand(time(NULL));
+            int number = rand() % 100 + 1;
+            int guess;
+
+            std::cout << "Try to guess the number from 1 - 100...\n";
+            std::cin >> guess;
+
+            while (guess != number) {
+                std::cout << "Nope... try again...\n";
+                std::cin >> guess;
+
+            }
+            std::cout << "Yes you got it... " << number << ", was my guess!\n";
 
             break;
         }
