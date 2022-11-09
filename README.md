@@ -11,3 +11,5 @@ Sandbox C++ project. Offers user the option to play several simple games.
 
 (5) High or Low Game
 
+(6) UFO Hangman
+
