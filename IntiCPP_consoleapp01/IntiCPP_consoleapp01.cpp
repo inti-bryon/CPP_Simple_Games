@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "ufo_functions.h"
 
 int main() {
 
@@ -10,7 +11,7 @@ int main() {
     int game = 1;
     while (true) {
         std::cout << "\n\n==================================================\n";
-    std::cout << "Please select which game to play...\n\n\t(1) Harry Potter Sorting Hat\n\n\t(2) Rock, Paper, Scissors\n\n\t(3) Guess Random Number\n\n\t(4) Story\n\n\t(5) High or Low Game\n\n";
+    std::cout << "Please select which game to play...\n\n\t(1) Harry Potter Sorting Hat\n\n\t(2) Rock, Paper, Scissors\n\n\t(3) Guess Random Number\n\n\t(4) Story\n\n\t(5) High or Low Game\n\n\t(6) UFO Guessing Game\n\n";
     std::cout << "==================================================\n";
     std::cin >> game;
         switch (game)
@@ -227,7 +228,7 @@ int main() {
             int number = rand() % 100 + 1;
             int guess;
 
-            std::cout << "Try to guess the number from 1 - 100...\n";
+            std::cout << "\nTry to guess the number from 1 - 100...\n";
             std::cin >> guess;
 
             while (guess != number) {
@@ -235,11 +236,11 @@ int main() {
                 if (guess > number) {
                     help = "Lower";
                 }
-                std::cout << "Nope... try guessing " << help << "...\n";
+                std::cout << "\nNope... try guessing " << help << "...\n";
                 std::cin >> guess;
 
             }
-            std::cout << "Yes you got it... " << number << ", was my guess!\n";
+            std::cout << "\nYes you got it... " << number << ", was my guess!\n\n";
 
             break;
         }
@@ -488,11 +489,11 @@ int main() {
         case 5:
         {
             //high / low numbers game
-            std::cout << "Welcome to the High / Low Game...\n\n\tWe start with a number (1-10) and then try to guess if the next is higher or lower.\n\n";
+            std::cout << "Welcome to the High / Low Game...\n\n\tWe start with a number (1-20) and then try to guess if the next is higher or lower.\n\n";
             //initialize first number
             srand(time(NULL));
-            int firstCard = rand() % 10 + 1;
-            //int wins = 0;
+            int firstCard = rand() % 20 + 1;
+            bool wins = true;
 
             //number of loops for the game. Change for condition to change steps needed to win game
             for (int i = 1; i <= 5; i++) {
@@ -504,25 +505,25 @@ int main() {
 
                 if (userGuess == "L" || userGuess == "l" || userGuess == "lower" || userGuess == "Lower") {
                     if (nextCard < firstCard || nextCard == firstCard) {
-                        //wins++;
                         firstCard = nextCard;
                         std::cout << "Yes... Correct...\n";
                     }
                     else
                     {
                         std::cout << "\n\nSorry Try Again...The Number was\t" << nextCard << "\n\n";
+                        wins = false;
                         break;
                     }
                 }
                 else if (userGuess == "H" || userGuess == "h" || userGuess == "higher" || userGuess == "Higher") {
                     if (nextCard > firstCard || nextCard == firstCard) {
-                        //wins++;
                         firstCard = nextCard;
                         std::cout << "Yes... Correct...\n";
                     }
                     else
                     {
                         std::cout << "\n\nSorry Try Again...The Number was\t" << nextCard << "\n\n";
+                        wins = false;
                         break;
                     }
                 }
@@ -530,8 +531,47 @@ int main() {
                     std::cout << "Invalid Entry\n";
                 }
             }
-            std::cout << "\n\n---------  CONGRATULATIONS YOU WON!!! ----------\n\n";
+            if (wins) {
+                std::cout << "\n\n---------  CONGRATULATIONS YOU WON!!! ----------\n\n";
+            }
 
+            break;
+        }
+        case 6:
+        {
+            greet();
+            srand(time(NULL));
+            std::string codeword = LoadWords(rand() % 50 + 1);
+            std::string answer = LoadBlanks(codeword.size());
+            int misses = 0;
+            std::vector<char> incorrect;
+            bool guess = false;
+            char letter;
+
+            while (codeword != answer && misses < 7) {
+                display_misses(misses);
+                display_status(incorrect, answer);
+                std::cout << "Please enter your guess: \n";
+                std::cin >> letter;
+
+                for (int i = 0; i < codeword.size(); i++) {
+                    if (letter == codeword[i]) {
+                        answer[i] = letter;
+                        guess = true;
+                    }
+                }
+
+                if (guess) {
+                    std::cout << "Correct!\n";
+                }
+                else {
+                    std::cout << "Incorrect! The tractor beam pulls the person in further.\n";
+                    incorrect.push_back(letter);
+                    misses++;
+                }
+                guess = false;
+            }
+            end_game(answer, codeword);
             break;
         }
         default :
