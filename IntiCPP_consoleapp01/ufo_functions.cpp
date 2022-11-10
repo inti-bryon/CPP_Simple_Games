@@ -4,7 +4,7 @@
 
 // Define functions
 void greet() {
-    std::cout << "\n\n=============\nUFO: The Game\n=============\nInstructions: save your friend from alien abduction by guessing the letters in the codeword.\n\n";
+    std::cout << "\n\n=============\nUFO: Hangman Game\n=============\nInstructions: save your friend from alien abduction by guessing the letters in the codeword.\n\n";
 }
 
 void end_game(std::string answer, std::string codeword) {
@@ -35,7 +35,7 @@ void display_status(std::vector<char> incorrect, std::string answer) {
 
 std::string LoadWords(int i) {
 
-    std::vector<std::string> options = { "codeacademy", "bryonfamily", "turtledove", "halloween", "enchantment", "sterling", "expedition", "impressive", "christmas", "precinct", 
+    std::vector<std::string> options = { "sports", "league", "turtledove", "halloween", "enchantment", "sterling", "expedition", "impressive", "christmas", "precinct", 
                                         "microsoft", "convertible", "cupcake", "bucket", "computer", "purple", "twisted", "hurricane", "wonderful", "amazing",
                                         "luggage", "microscope", "touchdown", "interception", "dolphin", "picture", "tournament", "soccer", "basketball", "sasquatch", 
                                         "riveting", "waterfall", "elephant", "pencil", "skeleton", "sandcastle", "xylophone", "telephone", "robot", "stormtrooper", 
