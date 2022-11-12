@@ -11,7 +11,7 @@ void end_game(std::string answer, std::string codeword) {
     //check to see if the player won or lost
     if (codeword == answer) {
         //player won
-        std::cout << "\nHooray! You saved your BFF :)\n\n";
+        std::cout << "\nYes... The word was: " << codeword << "\nHooray!You saved your BFF : )\n\n";
     }
     else {
         std::cout << "\nOh no! The UFO just got away...\n\nThe Word Was: " << codeword;

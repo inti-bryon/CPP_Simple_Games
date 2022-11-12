@@ -21,9 +21,15 @@
     <ClCompile Include="ufo_functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TicGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ufo_functions.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TicGame.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

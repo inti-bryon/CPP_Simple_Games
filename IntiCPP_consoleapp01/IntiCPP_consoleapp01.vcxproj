@@ -128,9 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="IntiCPP_consoleapp01.cpp" />
+    <ClCompile Include="TicGame.cpp" />
     <ClCompile Include="ufo_functions.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TicGame.h" />
     <ClInclude Include="ufo_functions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
