@@ -3,24 +3,27 @@
 
 #include <iostream>
 #include <unordered_set>
-
 #include "ufo_functions.h"
 #include "TicGame.h"
+
+void PrintMenu() {
+    std::cout << "\n\n==================================================\n";
+    std::cout << "\tWelcome to Inti's Fun House";
+    std::cout << "\n==================================================\n\n";
+    std::cout << "Please select which game to play...\n\n\t(1) Harry Potter Sorting Hat\n\n\t(2) Rock, Paper, Scissors\n\n\t(3) Guess Random Number\n\n\t(4) High or Low Game\n\n\t(5) UFO Guessing Game\n\n\t(6) Tic Tac Toe\n\n";
+    std::cout << "==================================================\n\n";
+
+}
 
 
 int main() {
 
     //main menu
-
-    
-    while (true) {
-        int game;
-        std::cout << "\n\n==================================================\n";
-        std::cout << "\tWelcome to Inti's Fun House";
-        std::cout << "\n==================================================\n\n";
-        std::cout << "Please select which game to play...\n\n\t(1) Harry Potter Sorting Hat\n\n\t(2) Rock, Paper, Scissors\n\n\t(3) Guess Random Number\n\n\t(4) High or Low Game\n\n\t(5) UFO Guessing Game\n\n\t(6) Tic Tac Toe\n\n";
-        std::cout << "==================================================\n\n";
-        std::cin >> game;
+    PrintMenu();
+    int game = 0;
+    while (std::cin >> game) {
+        //print menu
+        
         //start game selection
         switch (game)
         {
@@ -153,6 +156,7 @@ int main() {
             }
 
             std::cout << "\n.\n.\n.\nYour Selected House is : " << house << "!\n\n";
+            PrintMenu();
             break;
         }
         case 2:
@@ -226,6 +230,7 @@ int main() {
             {
                 std::cout << "Invalid Entry\n";
             }
+            PrintMenu();
             break;
 
         }
@@ -249,7 +254,7 @@ int main() {
 
             }
             std::cout << "\nYes you got it... " << number << ", was my guess!\n\n";
-
+            PrintMenu();
             break;
         }
         case 4:
@@ -300,7 +305,7 @@ int main() {
             if (wins) {
                 std::cout << "\n\n---------  CONGRATULATIONS YOU WON!!! ----------\n\n";
             }
-
+            PrintMenu();
             break;
         }
         case 5:
@@ -338,6 +343,7 @@ int main() {
                 guess = false;
             }
             end_game(answer, codeword);
+            PrintMenu();
             break;
         }
         case 6:
@@ -480,11 +486,12 @@ int main() {
                     }
                 }
             }
-
+            PrintMenu();
             break;
         }
         default:
             std::cout << "Invalid Selection\n";
+            PrintMenu();
             break;
         }
     }
