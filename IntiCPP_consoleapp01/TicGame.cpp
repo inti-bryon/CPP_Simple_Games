@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "TicGame.h"
 
 using namespace std;
 
@@ -59,3 +60,17 @@ void PrintBoard(char a_game[3][3]) {
     cout << endl;
 }
 
+bool CheckTie(char a_game[3][3]) {
+    bool is_tie = true;
+    
+    set<char> nums_check = { '1','2','3','4','5','6','7','8','9' };
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            char tie_char = a_game[i][j];
+            if (nums_check.count(a_game[i][j])) is_tie = false;
+        }
+    }
+
+    return is_tie;
+}

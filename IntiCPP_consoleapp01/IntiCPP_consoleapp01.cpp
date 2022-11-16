@@ -22,7 +22,6 @@ int main() {
     PrintMenu();
     int game = 0;
     while (std::cin >> game) {
-        //print menu
         
         //start game selection
         switch (game)
@@ -411,9 +410,12 @@ int main() {
                 PrintBoard(new_game);
 
                 //check for win
-
                 if (CheckWin(new_game, player_one)) {
                     cout << "\tCongratulations " << player_one << ", You Won The Game!!\n\n";
+                    break;
+                }
+                else if (CheckTie(new_game)) {
+                    cout << "\tTIE GAME\tNo One Won!!\n\n";
                     break;
                 }
 
@@ -473,7 +475,6 @@ int main() {
                 }
 
                 PrintBoard(new_game);
-
                 //check for win
                 if (CheckWin(new_game, player_two)) {
                     if (cpu_player) {
@@ -484,6 +485,10 @@ int main() {
                         cout << "\tCongratulations " << player_two << ", You Won The Game!!\n\n";
                         break;
                     }
+                }
+                else if (CheckTie(new_game)) {
+                    cout << "\tTIE GAME\tNo One Won!!\n\n";
+                    break;
                 }
             }
             PrintMenu();
