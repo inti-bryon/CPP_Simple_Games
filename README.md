@@ -7,9 +7,9 @@ Sandbox C++ project. Offers user the option to play several simple games.
 
 (3) Guess Random Number
 
-(4) Story
+(4) High or Low Game
 
-(5) High or Low Game
+(5) UFO Guessing game
 
-(6) UFO Hangman
+(6) Tic Tac Toe
 
